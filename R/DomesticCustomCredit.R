@@ -8,9 +8,9 @@
 #'
 #' @examples
 #' DomesticCustomCredit_view()
-DomesticCustomCredit_view<- function(dms_token) {
+DomesticCustomCredit_view<- function(dms_token,FDate) {
 
-  sql=paste0(" select * from rds_dms_ods_vw_CustomerCredit ")
+  sql=paste0(" exec rds_dms_src_proc_CustomerCredit '",FDate,"'  ")
 
   res=tsda::sql_select2(token = dms_token,sql = sql)
   return(res)
